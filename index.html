@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="jquery.js"></script>
-    <script src="data_generator.js"></script>
+
      <link rel="stylesheet" type="text/css" href="twittler.css">
      <link rel="stylesheet" type="text/css" href="normalize.css">
   </head>
   <body>
+  <div class = 'wrap'>
+    <div class ='header'>
+      <h1>Twittler</h1>
+    </div>
+
+    
+    <div class = 'friends'>
+      <h3>Friends</h3>
+      <ul>
+        <!-- users will be populated here --> 
+      </ul>
+    </div><!-- fix
 
 
-    <script>
 
-      $(document).ready(function(){
-        var $body = $('body');
-        $body.html('');
+    --><div class ="main-feed">
+      <h3>Main Feed</h3>
+      <div class ="feed">
+        <ul>
 
-        var index = streams.home.length - 1;
-        while(index >= 0){
-          var tweet = streams.home[index];
-          var $tweet = $('<div></div>');
-          $tweet.text('@' + tweet.user + ': ' + tweet.message);
-          $tweet.appendTo($body);
-          index -= 1;
-        }
+        </ul>
+      <!-- here are where the tweets appear --> 
+      </div>
+    </div><!-- /.main-feed -->  
+  </div><!-- /.wrap -->
 
-      });
 
-    </script>
+  <!-- SRIPTS -->
+  <script src="jquery.js"></script>
+  <script src="data_generator.js"></script>
+  <script src="app.js"></script>
+  <!-- END SCRIPTS --> 
   </body>
 </html>
