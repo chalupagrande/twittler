@@ -9,14 +9,29 @@ $(document).ready(function(){
       $user.appendTo($('.friends').find('ul'));
     }
 
-    //Populates Stream
+    var tweetsShown = 0;
+    var checkForTweets = function(){
+      for(var i = tweetsShown; i < streams.home.length; i++){
+        var tweet = streams.home[i];
+        var $tweet = $('<li></li>');
+        $tweet.text('@' + tweet.user + ': ' + tweet.message);
+        $tweet.prependTo($body);
+        tweetsShown++;
+      }
+    };
+
+
+    //Populates Inital Stream
     var index = streams.home.length - 1;
     while(index >= 0){
       var tweet = streams.home[index];
       var $tweet = $('<li></li>');
       $tweet.text('@' + tweet.user + ': ' + tweet.message);
-      $tweet.appendTo($body);
+      $tweet.prependTo($body);
       index -= 1;
+      tweetsShown++;
     }//END while
+
+    setInterval(checkForTweets, 5000);
 
 }); // END document.ready()
