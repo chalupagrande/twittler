@@ -2,22 +2,6 @@ $(document).ready(function(){
     var $feed = $('.feed > ul');
     var numTweetsShown = 0;
 
-    // $body.html('');
-
-    //Originally Populates Inital Stream
-    var index = streams.home.length - 1;
-    while(index >= 0){
-      var tweet = streams.home[index];
-      var $tweet = $("<li class = 'tweet'></li>");      
-      $tweet.html("<p class = 'username'> @" + tweet.user + ":</p> <p class = 'message'> " +
-        tweet.message + "</p> <p class= 'mini'>"+ tweet.created_at + '</p>');
-      $tweet.data('user', tweet.user );
-      $tweet.prependTo($feed);
-      index -= 1;
-      numTweetsShown++;
-    }//END while
-
-
     // Populates Friends List
     for(var i = 0; i < users.length; i++){
       var $user = $('<li></li>');
@@ -33,8 +17,9 @@ $(document).ready(function(){
       }
     }
 
-    var showAllTweets = function(){
-      for(var i = 0; i < streams.home.length; i++){
+    //Displays new tweets    
+    var showTweets = function(startIndex){
+      for(var i = startIndex; i < streams.home.length; i++){
         var tweet = streams.home[i];
         var $tweet = $("<li class = 'tweet'></li>");
         
@@ -49,11 +34,9 @@ $(document).ready(function(){
       }
     };
 
-    //Displays new tweets
-    
-    var showTweets = function(){
-      for(var i = numTweetsShown; i < streams.home.length; i++){
-        var tweet = streams.home[i];
+    var showUserTweets = function(userToShow){
+      for(var i = 0;i < streams.users[userToShow].length; i++){
+        var tweet = streams.users[userToShow][i];
         var $tweet = $("<li class = 'tweet'></li>");
         
         $tweet.css('display','none');
@@ -64,36 +47,42 @@ $(document).ready(function(){
         numTweetsShown++;
         $tweet.slideDown();
         $tweet.fadeIn();
+
       }
+
     };
 
     //Refresh Event Listener
     $('#refresh').on('click', function(event){
-          event.preventDefault();
-          showTweets()
-          $(this).slideUp();
-        })
-
-    $('#home').on('click', function(event){
-          event.preventDefault();
-          $('.tweet').remove();
-          showAllTweets()
-          var feedName = $('.main-feed').find('h2');
-          feedName.html("Main Feed");
-        })
-
-    //Changes Feeds
-    $('.username').on('click',function(){
-      var user = $(this).closest('.tweet').data('user');
-      var feedName = $('.main-feed').find('h2');
-      feedName.html("<i class = 'fa fa-home fa-2x'></i>   "+  user);
-
-
-
+      event.preventDefault();
+      showTweets(numTweetsShown);
+      $(this).slideUp();
     });
+
     
 
+    showTweets(numTweetsShown);
     setInterval(checkForTweets, 3000);
+
+    
+//Username feed listener
+    $('.tweet').on('click', '.username', function(event){
+      event.preventDefault;
+      var user = $(this).closest('.tweet').data('user');
+      $('#user-feed').html("<i class = 'fa fa-home'></i>" + user + "'s Feed");
+
+      $('.tweet').remove();
+      showUserTweets(user);
+
+    });
+
+    $('#user-feed').on('click','.fa-home' ,function(){
+      $('.tweet').remove();
+      $('#user-feed').html('');
+      showTweets(0);
+    });
+
+    
 
 
 
