@@ -14,24 +14,31 @@
   <div class = 'wrap'>
     <form class = "form">
     Twit: <input type="text-area" name='tweet' size="40" maxlength="180"><br>
-    <input type="submit" value="submit">
+    <button><i class = "fa fa-paper-plane"></i>Send</button>
     </form>
 
-    <div class = 'friends'>
-      <h2>Friends</h2>
-      <ul>
-        <!-- users will be populated here --> 
-      </ul>
+    <div class ='sidebar col-1-3'>
+      <div class = 'friends'>
+        <h2>Friends</h2>
+        <ul>
+          <!-- users will be populated here --> 
+        </ul>
+      </div>
     </div><!-- fix
 
- --><div class ="main-feed">
+ --><div class ="main-feed col-2-3">
       <h2>Main Feed</h2>
-      <a href="#" id = 'refresh'>Refresh</a>
+      
+        <p id = 'refresh'>          
+            <i class = "fa fa-refresh"></i>
+            view <span id ='numTweets'>0</span> new tweets
+        </p>
+      
       <div class ="feed">
         <ul>
+        <!-- here are where the tweets appear --> 
 
         </ul>
-      <!-- here are where the tweets appear --> 
       </div>
     </div><!-- /.main-feed -->  
   </div><!-- /.wrap -->
