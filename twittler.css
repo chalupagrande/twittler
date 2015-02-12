@@ -98,6 +98,9 @@ form button i{
 	color:#E4E0E0;
 	cursor: pointer;
 }
+.fa-home:hover{
+	color:#4099FF;
+}
 
 
 
