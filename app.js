@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    var $body = $('.feed > ul');
+    var $feed = $('.feed > ul');
     // $body.html('');
 
     // Populates Friends List
@@ -14,24 +14,28 @@ $(document).ready(function(){
       for(var i = tweetsShown; i < streams.home.length; i++){
         var tweet = streams.home[i];
         var $tweet = $('<li></li>');
-        $tweet.text('@' + tweet.user + ': ' + tweet.message);
-        $tweet.prependTo($body);
+        $tweet.html('@' + tweet.user + ': ' + tweet.message + "<br> <span class= 'mini'>"+ tweet.created_at + '</span>');
+        $tweet.prependTo($feed);
+        index -= 1;
         tweetsShown++;
       }
     };
 
 
-    //Populates Inital Stream
+    //Originally Populates Inital Stream
     var index = streams.home.length - 1;
     while(index >= 0){
       var tweet = streams.home[index];
       var $tweet = $('<li></li>');
-      $tweet.text('@' + tweet.user + ': ' + tweet.message);
-      $tweet.prependTo($body);
+      $tweet.html('@' + tweet.user + ': ' + tweet.message + "<br> <span class= 'mini'>"+ tweet.created_at + '</span>');
+      $tweet.prependTo($feed);
       index -= 1;
       tweetsShown++;
     }//END while
 
-    setInterval(checkForTweets, 5000);
+    $('#refresh').on('click', function(event){
+      event.preventDefault();
+      checkForTweets()
+    })
 
 }); // END document.ready()

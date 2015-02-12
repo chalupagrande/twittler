@@ -4,16 +4,16 @@
 
      <link rel="stylesheet" type="text/css" href="twittler.css">
      <link rel="stylesheet" type="text/css" href="normalize.css">
+     <link rel="stylesheet" type="text/css" href="font-awesome.min.css">
   </head>
   <body>
-  <div class = 'wrap'>
-    <div class ='header'>
-      <h1>Twittler</h1>
-    </div>
+  <div class ='header'>
+      <h1 class ='flip'><span class="fa fa-twitter fa-2x"></span></h1><h1 class='title'>Twittler</h1>
+  </div>
 
-    
+  <div class = 'wrap'>
     <div class = 'friends'>
-      <h3>Friends</h3>
+      <h2>Friends</h2>
       <ul>
         <!-- users will be populated here --> 
       </ul>
@@ -22,7 +22,8 @@
 
 
     --><div class ="main-feed">
-      <h3>Main Feed</h3>
+      <h2>Main Feed</h2>
+      <a href="#" id = 'refresh'>Refresh</a>
       <div class ="feed">
         <ul>
 

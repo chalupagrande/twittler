@@ -1,9 +1,38 @@
+/* Global Styles */
+
 body{
-	background-color: #85E0FF;
+	background-color: #E9EBF2;
 }
+
 div{
-	border: solid 1px red;
 	padding:5px;
+}
+
+
+
+/* HEADER STYLING */
+.header{
+	display: block;
+	padding-left:35px;
+	background-color: #4099FF;
+
+}
+.fa-twitter{
+	width:50px;
+	height:50px;
+	color:white;
+}
+.header > h1{
+	display: inline-block;
+	vertical-align: top;
+	margin:0;
+}
+.title{
+	padding-left:15px;
+	padding-top:10px;
+	color:white;
+	font-size: 3.2em;
+	font-weight:bold;
 }
 .wrap{
 	width:95%;
@@ -16,9 +45,38 @@ div{
 	vertical-align: top;
 	padding:5px;
 }
+.mini{
+	font-size: 0.7em;
+	color:#333;
+}
+
 .friends{
 	min-width: 200px;
 	width:25%;
 	background-color:;
+}
+.feed ul li{
+	background-color: #E9EBF2;
+	margin: 2px;
+	padding:7px 4px;
+	list-style: none;
+	border-radius: 4px;
+}
+
+ .flip{
+   /* Safari */
+-webkit-transform: rotate(-180deg);
+
+/* Firefox */
+-moz-transform: rotate(-180deg);
+
+/* IE */
+-ms-transform: rotate(-180deg);
+
+/* Opera */
+-o-transform: rotate(-180deg);
+
+/* Internet Explorer */
+filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 
 }
