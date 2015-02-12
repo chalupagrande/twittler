@@ -425,3 +425,7 @@ td,
 th {
   padding: 0;
 }
+
+ul {
+    -webkit-padding-start: 0px;
+}

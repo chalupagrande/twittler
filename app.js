@@ -14,10 +14,12 @@ $(document).ready(function(){
       for(var i = tweetsShown; i < streams.home.length; i++){
         var tweet = streams.home[i];
         var $tweet = $('<li></li>');
+        $tweet.css('display','none');
         $tweet.html('@' + tweet.user + ': ' + tweet.message + "<br> <span class= 'mini'>"+ tweet.created_at + '</span>');
         $tweet.prependTo($feed);
-        index -= 1;
         tweetsShown++;
+        $tweet.slideDown();
+        $tweet.fadeIn();
       }
     };
 

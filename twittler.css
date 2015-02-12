@@ -8,6 +8,18 @@ div{
 	padding:5px;
 }
 
+.wrap{
+	width:95%;
+	margin:5px auto;
+}
+.feed,
+.main-feed, 
+.friends{
+	display: inline-block;
+	vertical-align: top;
+	padding:5px;
+}
+
 
 
 /* HEADER STYLING */
@@ -34,24 +46,20 @@ div{
 	font-size: 3.2em;
 	font-weight:bold;
 }
-.wrap{
-	width:95%;
-	margin:5px auto;
-}
-.feed,
-.main-feed, 
-.friends{
-	display: inline-block;
-	vertical-align: top;
-	padding:5px;
-}
-.mini{
-	font-size: 0.7em;
-	color:#333;
-}
 
+/* body styling */
+
+form{
+	display:block;
+	background-color: #999; 
+	border-radius:5px;
+	padding: 20px;
+	color:black;
+	width:330px;
+	margin: 0 auto;
+}
 .friends{
-	min-width: 200px;
+	min-width: 120px;
 	width:25%;
 	background-color:;
 }
@@ -62,21 +70,20 @@ div{
 	list-style: none;
 	border-radius: 4px;
 }
+/* Specifics */
+#refresh{
+	display:block;
+}
 
- .flip{
-   /* Safari */
--webkit-transform: rotate(-180deg);
+.mini{
+	font-size: 0.7em;
+	color:#333;
+}
 
-/* Firefox */
--moz-transform: rotate(-180deg);
-
-/* IE */
--ms-transform: rotate(-180deg);
-
-/* Opera */
--o-transform: rotate(-180deg);
-
-/* Internet Explorer */
-filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-
+.flip{
+	-webkit-transform: rotate(-180deg);
+	-moz-transform: rotate(-180deg);
+	-ms-transform: rotate(-180deg);
+	-o-transform: rotate(-180deg);
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
