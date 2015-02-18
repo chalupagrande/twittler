@@ -2,9 +2,9 @@
 <html>
   <head>
 
-     <link rel="stylesheet" type="text/css" href="twittler.css">
-     <link rel="stylesheet" type="text/css" href="normalize.css">
-     <link rel="stylesheet" type="text/css" href="font-awesome.min.css">
+     <link rel="stylesheet" type="text/css" href="css/twit.css">
+     <link rel="stylesheet" type="text/css" href="css/normalize.css">
+     <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
   </head>
   <body>
   <div class ='header'>
@@ -12,14 +12,15 @@
   </div>
 
   <div class = 'wrap'>
-    <form class = "form">
+    <!-- <form class = "form">
     Twit: <input type="text-area" name='tweet' size="40" maxlength="180"><br>
     <button><i class = "fa fa-paper-plane"></i>Send</button>
-    </form>
+    </form> -->
 
     <div class ='sidebar col-1-3'>
       <div class = 'friends'>
-        <h2>Friends</h2>
+        <h2 class = 'subtitle'>Friends</h2>
+        <hr>
         <ul>
           <!-- users will be populated here --> 
         </ul>
@@ -27,7 +28,7 @@
     </div><!-- fix
 
  --><div class ="main-feed col-2-3">
-      <h2 id ='user-feed'>Main Feed</h3>
+      <h2 id ='user-feed' data-user = 'home'>Main Feed</h2>
       
         <p id = 'refresh'>          
             <i class = "fa fa-refresh"></i>

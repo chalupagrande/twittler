@@ -4,14 +4,15 @@ $(document).ready(function(){
 
     // Populates Friends List
     for(var i = 0; i < users.length; i++){
-      var $user = $('<li/>');
+      var $user = $("<li class = 'username'></li>");
       $user.text(users[i]);
+      $user.data('user', users[i]);
       $user.appendTo($('.friends').find('ul'));
     }
     
     //Checks to see if there are new tweets
     var checkForTweets = function(){
-      if(numTweetsShown < streams.home.length){
+      if(numTweetsShown < streams.home.length && $('#user-feed').data('user') === 'home'){
           $('#refresh').last().find('#numTweets').html(streams.home.length - numTweetsShown);
           $('#refresh').slideDown(); 
       }
@@ -44,6 +45,7 @@ $(document).ready(function(){
         $tweet.html("<p class = 'username'> @" + tweet.user + ":</p> <p class = 'message'> " +
           tweet.message + "</p> <p class= 'mini'>"+ tweet.created_at + '</p>');
         $tweet.data('user', tweet.user );
+        $('#user-feed').data('user', tweet.user);
         $tweet.prependTo($feed);
         numTweetsShown++;
         $tweet.slideDown();
@@ -60,7 +62,7 @@ $(document).ready(function(){
       $(this).slideUp();
     });
 
-    var userEventListener = function(){
+  var userEventListener = function(){
     $('.tweet').on('click', '.username', function(event){
       event.preventDefault;
       var user = $(this).closest('.tweet').data('user');
@@ -71,10 +73,20 @@ $(document).ready(function(){
     });
   };
 
+  $('.friends').on('click', '.username', function(event){
+      event.preventDefault;
+      var user = $(this).data('user');
+      $('#user-feed').html("<i class = 'fa fa-home'></i>" + user + "'s Feed");
+
+      $('.tweet').remove();
+      showUserTweets(user);
+    });
+
 
   $('#user-feed').on('click','.fa-home' ,function(){
       $('.tweet').remove();
       $('#user-feed').html('Main Feed');
+       $('#user-feed').data('user', 'home');
       showTweets(0);
     });
 
